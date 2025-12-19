@@ -6,10 +6,7 @@ import cors from "cors";
 import ErrorMiddelware from "./middleware/error.js";
 import path, { join } from "path";
 import initRoute from "./route/route.js";
-// import initLogger from "./Config/logger.js";
-// import requestIp from "request-ip"
-// import compression from "compression"
-// import { startCronJobs } from "./Services/allCronjobs.js";
+
 
 const app = express();
 const __dirname = path.resolve();
@@ -32,33 +29,11 @@ app.use(
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
   })
 );
-// app.use(requestIp.mw());
-// app.use(compression())
 
-// app.set("view engine", "ejs");
-// app.set("views", path.join(__dirname, "views"));
 
 // Initialize Routes
 initRoute(app);
 
-// Initialize Logs
-// initLogger();
-
-// Run all cron jobs
-// if (process.env.NODE_ENV === 'production') startCronJobs();
-
-// Ip
-// app.get('/ip', (req, res) => {
-//   const clientIp = req.clientIp;
-//   res.send(`${clientIp}`);
-// });
-
-// Serving frontend
-// app.use(express.static(join(__dirname, "./out")));
-
-// app.get("*", (req, res) => {
-//   res.sendFile(join(__dirname, "./out/index.html"));
-// });
 
 export default app;
 
