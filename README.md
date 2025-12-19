@@ -27,7 +27,7 @@ JWT_SECRET=your_jwt_secret
 
 npm start
 
-curl -X POST http://localhost:3000/auth/register \
+curl -X POST (http://localhost:3000/v1/user/create-user)\
 -H "Content-Type: application/json" \
 -d '{
   "first_name": "Hi",
@@ -36,7 +36,7 @@ curl -X POST http://localhost:3000/auth/register \
   "password": "1234"
 }'
 
-curl -X POST http://localhost:3000/auth/login \
+curl -X POST http://localhost:3000/v1/user/login \
 -H "Content-Type: application/json" \
 -H "Authorization: Bearer <JWT_TOKEN>"
 -d '{
@@ -44,22 +44,22 @@ curl -X POST http://localhost:3000/auth/login \
   "password": "1234"
 }'
 
-curl -X GET http://localhost:3000/auth/profile \
+curl -X GET (http://localhost:3000/v1/user/profile) \
 -H "Authorization: Bearer <JWT_TOKEN>"
 
 
-Create POst
-curl -X POST http://localhost:3000/posts \
+Create POST
+curl -X POST http://localhost:3000/v1/user/create-post \
 -H "Authorization: Bearer <JWT_TOKEN>" \
 -H "Content-Type: application/json" \
 -d '{
   "caption": "My first post"
 }'
 
-curl -X GET "http://localhost:3000/posts?page=1&limit=5"
+curl -X GET "http://localhost:3000/v1/user/fetch-posts"
 
-curl -X POST http://localhost:3000/posts/<POST_ID>/like \
+curl -X GET [http://localhost:3000/posts/<POST_ID>](http://localhost:3000/v1/user/user-posts/6945371445247c369e603a26)/like \
 -H "Authorization: Bearer <JWT_TOKEN>"
 
-curl -X GET http://localhost:3000/posts/user/<USER_ID>
+curl -X POST (http://localhost:3000/v1/user/like-post/69453c52e032373b1a498cbc)
 
