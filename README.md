@@ -1,31 +1,4 @@
-# testingInterview
-<<<<<<< HEAD
-backend-practical/
-│
-├── src/
-│   ├── controllers/
-│   │   ├── authController.js
-│   │   └── postController.js
-│   │
-│   ├── middleware/
-│   │   └── userAuth.js
-│   │
-│   ├── models/
-│   │   ├── userModel.js
-│   │   └── postModel.js
-│   │
-│   ├── routes/
-│   │   ├── authRoutes.js
-│   │   └── postRoutes.js
-│   │
-│   └── app.js
-│
-├── .env.example
-├── server.js
-├── package.json
-└── README.md
-=======
->>>>>>> b20caaf2150cfcffdda1f8a09719e896f3eb74b2
+
 
 Tech Stack
 
