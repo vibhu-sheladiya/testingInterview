@@ -3,6 +3,7 @@ const { userValidation } = require("../../validation");
 const {  register, getUserList, getUserDetails, updateDetails, deleteUser, sendMail, login, userProfile, createPost, fetchPosts, userWisePosts, likePost } = require("../../controller/user/userController");
 const validate = require("../../middleware/validate");
 const auth = require("../../middleware/auth");
+const { upload } = require("../../middleware/upload");
 
 const router = express.Router();
 
@@ -18,9 +19,13 @@ router.post("/login",auth.userAuth(),login );
 
 router.get("/profile",auth.userAuth(),userProfile);
 
-router.post("/create-post",auth.userAuth(),createPost);
+// router.post("/create-post",auth.userAuth(),createPost);
 router.get("/fetch-posts",auth.userAuth(),fetchPosts);
 router.get("/user-posts/:userId",auth.userAuth(),userWisePosts);
 router.post("/like-post/:id",likePost);
+
+
+router.post("/create-post",auth.userAuth(),  upload.single("product_image"),createPost);
+
 
 module.exports = router;

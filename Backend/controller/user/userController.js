@@ -88,17 +88,26 @@ const userProfile = async (req, res) => {
 
 const createPost = async (req, res) => {
   try {
-     const { caption,userId } = req.body;
+     let { caption,userId,product_image } = req.body;
 
     if (!caption) {
       return res.status(400).json({ message: "Caption is required" });
     }
+    if (req.file) {
+     product_image = req.file.filename;
+    } else {
+      throw new Error("Product image is required!");
+    }
+
 
     const post = await Post.create({
       userId, 
       caption,
+      product_image,
     });
 
+    console.log(post);
+    
     res.status(200).json({ message: "created post successfully" });
   } catch (error) {
     res.status(400).json({ message: error.message });
