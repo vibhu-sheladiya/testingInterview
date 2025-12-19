@@ -27,7 +27,7 @@ app.use(bodyParser.text({ type: "application/xml" }));
 app.use(bodyParser.json());
 app.use(
   cors({
-    origin: [process.env.FRONTEND_URL, "http://localhost:3000", "http://localhost:8081", "https://booking.icorpsecurity.com.au", "https://icorp.awp.cc", "https://www.icorpsecurity.com.au", "https://icorpsecurity.com.au"],
+    origin: [process.env.FRONTEND_URL, "http://localhost:3000"],
     credentials: true,
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
   })
